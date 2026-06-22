@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nachrichten vom Grill – Der Sommerfest-Podcast der 5f</title>
+<style>
+  :root{
+    --ember:    #ff6b1a;   /* glühende Kohle */
+    --flame:    #ffb000;   /* Flamme / Schrift */
+    --char:     #1c1410;   /* verkohltes Schwarz */
+    --char-2:   #2a1f17;   /* Holzkohle, etwas heller */
+    --cream:    #f6ede0;   /* Servietten-Weiß */
+    --grill:    #3a322c;   /* Grillrost */
+    --green:    #6b8e23;   /* Salat / Sommer */
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+
+  body{
+    font-family:"Trebuchet MS","Segoe UI",system-ui,sans-serif;
+    color:var(--cream);
+    background:
+      radial-gradient(circle at 50% 18%, rgba(255,107,26,.22), transparent 55%),
+      linear-gradient(160deg, var(--char) 0%, var(--char-2) 60%, #100b08 100%);
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:28px 18px 48px;
+  }
+
+  /* dünne Glut-Linie ganz oben */
+  body::before{
+    content:"";
+    position:fixed;top:0;left:0;right:0;height:4px;
+    background:linear-gradient(90deg,var(--ember),var(--flame),var(--ember));
+    box-shadow:0 0 18px rgba(255,140,40,.7);
+    z-index:5;
+  }
+
+  .stage{width:100%;max-width:520px;display:flex;flex-direction:column;align-items:center}
+
+  .cover-wrap{
+    width:100%;
+    border-radius:18px;
+    overflow:hidden;
+    border:2px solid rgba(255,176,0,.35);
+    box-shadow:0 18px 45px rgba(0,0,0,.6), 0 0 0 6px rgba(0,0,0,.25);
+    line-height:0;
+  }
+  .cover-wrap img{width:100%;height:auto;display:block}
+
+  .klasse-badge{
+    margin:22px 0 4px;
+    font-size:.8rem;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--flame);
+    display:flex;align-items:center;gap:10px;
+  }
+  .klasse-badge::before,.klasse-badge::after{
+    content:"";height:1px;width:34px;
+    background:linear-gradient(90deg,transparent,var(--ember));
+  }
+  .klasse-badge::after{background:linear-gradient(90deg,var(--ember),transparent)}
+
+  h1{
+    font-size:1.55rem;
+    text-align:center;
+    line-height:1.2;
+    margin-bottom:24px;
+    color:var(--cream);
+    text-shadow:0 2px 0 rgba(0,0,0,.4);
+  }
+
+  /* Player-Karte */
+  .player{
+    width:100%;
+    background:rgba(28,20,16,.85);
+    border:1px solid rgba(255,176,0,.28);
+    border-radius:16px;
+    padding:22px;
+    backdrop-filter:blur(3px);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.05), 0 12px 30px rgba(0,0,0,.45);
+  }
+
+  .episode-title{
+    font-size:1.1rem;
+    color:var(--flame);
+    margin-bottom:4px;
+  }
+  .episode-meta{
+    font-size:.85rem;
+    color:rgba(246,237,224,.6);
+    margin-bottom:18px;
+  }
+
+  audio{
+    width:100%;
+    border-radius:10px;
+    outline:none;
+  }
+  /* WebKit-Audio etwas in die Farbwelt holen */
+  audio::-webkit-media-controls-panel{background:var(--grill)}
+
+  .note{
+    margin-top:18px;
+    font-size:.8rem;
+    line-height:1.5;
+    color:rgba(246,237,224,.55);
+    text-align:center;
+  }
+
+  footer{
+    margin-top:34px;
+    font-size:.78rem;
+    color:rgba(246,237,224,.4);
+    text-align:center;
+  }
+  footer .heart{color:var(--ember)}
+
+  @media (max-width:420px){
+    h1{font-size:1.3rem}
+    .player{padding:18px}
+  }
+</style>
+</head>
+<body>
+  <main class="stage">
+
+    <div class="cover-wrap">
+      <!-- Cover-Bild. Datei "cover.png" muss neben dieser HTML-Datei liegen. -->
+      <img src="cover.png" alt="Nachrichten vom Grill – Der Sommerfest-Podcast">
+    </div>
+
+    <p class="klasse-badge">Ein Podcast der Klasse 5f</p>
+    <h1>Nachrichten vom Grill<br><span style="font-size:.7em;font-weight:normal;color:rgba(246,237,224,.8)">Der Sommerfest-Podcast</span></h1>
+
+    <section class="player">
+      <!-- ► HIER ANPASSEN: Titel der Folge -->
+      <p class="episode-title">Nachrichten vom Grill</p>
+      <!-- ► HIER ANPASSEN: Beschreibung / Datum -->
+      <p class="episode-meta">Aufgenommen beim Sommerfest · Juni 2026</p>
+
+      <audio controls preload="metadata">
+        <!-- ► HIER DIE MP3-ADRESSE EINTRAGEN
+             z. B. die direkte URL aus deinem Cloudflare-R2-Bucket -->
+        <source src="https://pub-ea2b322a9096411b9ff71ca8f83db157.r2.dev/summercast.mp3" type="audio/mpeg">
+        Dein Browser kann das Audio leider nicht abspielen.
+        Du kannst die Datei aber direkt herunterladen.
+      </audio>
+
+      <p class="note">
+        Probleme beim Abspielen? Einfach die Seite neu laden
+        oder einen anderen Browser ausprobieren.
+      </p>
+    </section>
+
+    <footer>
+      Gemacht mit <span class="heart">&#9829;</span> von der Klasse 5f
+    </footer>
+
+  </main>
+</body>
+</html>
