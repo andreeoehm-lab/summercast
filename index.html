@@ -120,6 +120,46 @@
   }
   footer .heart{color:var(--ember)}
 
+  /* Rechtliches: Impressum & Datenschutz */
+  .legal{
+    width:100%;
+    max-width:520px;
+    margin-top:30px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .legal details{
+    background:rgba(28,20,16,.6);
+    border:1px solid rgba(255,176,0,.18);
+    border-radius:12px;
+    overflow:hidden;
+  }
+  .legal summary{
+    cursor:pointer;
+    padding:13px 18px;
+    font-size:.9rem;
+    color:var(--flame);
+    list-style:none;
+    user-select:none;
+  }
+  .legal summary::-webkit-details-marker{display:none}
+  .legal summary::after{content:" +";float:right;opacity:.6}
+  .legal details[open] summary::after{content:" –"}
+  .legal .legal-body{
+    padding:4px 18px 18px;
+    font-size:.82rem;
+    line-height:1.55;
+    color:rgba(246,237,224,.72);
+  }
+  .legal .legal-body h3{
+    font-size:.82rem;
+    color:var(--cream);
+    margin:14px 0 4px;
+  }
+  .legal .legal-body p{margin-bottom:8px}
+  .legal .placeholder{color:var(--ember)}
+
   @media (max-width:420px){
     h1{font-size:1.3rem}
     .player{padding:18px}
@@ -139,13 +179,11 @@
 
     <section class="player">
       <!-- ► HIER ANPASSEN: Titel der Folge -->
-      <p class="episode-title">Nachrichten vom Grill</p>
+      <p class="episode-title">Willkommen am Grill</p>
       <!-- ► HIER ANPASSEN: Beschreibung / Datum -->
       <p class="episode-meta">Aufgenommen beim Sommerfest · Juni 2026</p>
 
       <audio controls preload="metadata">
-        <!-- ► HIER DIE MP3-ADRESSE EINTRAGEN
-             z. B. die direkte URL aus deinem Cloudflare-R2-Bucket -->
         <source src="https://pub-ea2b322a9096411b9ff71ca8f83db157.r2.dev/summercast.mp3" type="audio/mpeg">
         Dein Browser kann das Audio leider nicht abspielen.
         Du kannst die Datei aber direkt herunterladen.
@@ -155,6 +193,115 @@
         Probleme beim Abspielen? Einfach die Seite neu laden
         oder einen anderen Browser ausprobieren.
       </p>
+    </section>
+
+    <section class="legal">
+
+      <details>
+        <summary>Impressum</summary>
+        <div class="legal-body">
+          <p>
+            Diese Seite ist ein Schulprojekt der Klasse 5f der
+            CJD Christophorusschule Königswinter und wird unter der
+            Verantwortung der Schule bzw. ihres Trägers (Christliches
+            Jugenddorfwerk Deutschlands e.&nbsp;V.) bereitgestellt.
+          </p>
+
+          <p>
+            Die vollständigen Anbieterangaben gemäß § 5 DDG findest du im
+            Impressum der CJD Königswinter:
+          </p>
+
+          <p>
+            <a href="https://koenigswinter.cjd.de/de/impressum"
+               target="_blank" rel="noopener"
+               style="color:var(--flame);text-decoration:underline;">
+              koenigswinter.cjd.de/de/impressum
+            </a>
+          </p>
+
+          <h3>Inhaltlich verantwortlich für dieses Projekt</h3>
+          <p>
+            <span class="placeholder">Andree Oehm</span>,
+            CJD Christophorusschule Königswinter<br>
+            Kontakt: <span class="placeholder">aoehm (Klammeraffe) cjd-koenigswinter. net </span>
+          </p>
+
+          <h3>Haftung für Inhalte</h3>
+          <p>
+            Die Inhalte dieser Seite wurden im Rahmen eines Schulprojekts mit
+            größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit
+            und Aktualität der Inhalte kann jedoch keine Gewähr übernommen werden.
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Datenschutzerklärung</summary>
+        <div class="legal-body">
+
+          <h3>1. Verantwortlicher</h3>
+          <p>
+            Verantwortlich im Sinne der DSGVO ist die CJD Christophorusschule
+            Königswinter bzw. ihr Träger. Die vollständigen Kontaktangaben sowie
+            die Kontaktdaten der/des Datenschutzbeauftragten findest du im
+            <a href="https://koenigswinter.cjd.de/de/impressum"
+               target="_blank" rel="noopener"
+               style="color:var(--flame);text-decoration:underline;">Impressum</a>.
+          </p>
+
+          <h3>2. Welche Daten verarbeitet werden</h3>
+          <p>
+            Diese Seite ist eine einfache, statische Webseite und setzt keine
+            Cookies, kein Tracking und keine Analyse-Werkzeuge ein. Es werden
+            keine Kontaktformulare oder Anmeldungen angeboten.
+          </p>
+          <p>
+            Beim Aufruf der Seite werden durch die technischen Anbieter
+            (GitHub Pages zur Auslieferung der Seite sowie Cloudflare zur
+            Auslieferung der Audiodatei) technisch notwendige Verbindungsdaten
+            verarbeitet, insbesondere die IP-Adresse, Datum und Uhrzeit des
+            Zugriffs sowie Angaben zum verwendeten Browser. Diese Verarbeitung
+            erfolgt zur sicheren und stabilen Bereitstellung der Seite
+            (Art. 6 Abs. 1 lit. f DSGVO).
+          </p>
+
+          <h3>3. Eingesetzte Dienste</h3>
+          <p>
+            <strong>GitHub Pages</strong> (GitHub Inc., USA) – Hosting der Webseite.<br>
+            <strong>Cloudflare R2</strong> (Cloudflare Inc., USA) – Bereitstellung der Audiodatei.<br>
+            Bei beiden Diensten kann eine Übermittlung von Verbindungsdaten in
+            die USA erfolgen.
+          </p>
+
+          <h3>4. Inhalte des Podcasts</h3>
+          <p>
+            Die im Podcast hörbaren Stimmen werden mit Einwilligung der
+            betroffenen Personen bzw. – bei mitwirkenden Kindern – ihrer
+            Erziehungsberechtigten veröffentlicht. Die Einwilligung kann
+            jederzeit für die Zukunft widerrufen werden.
+          </p>
+
+          <h3>5. Ihre Rechte</h3>
+          <p>
+            Sie haben das Recht auf Auskunft, Berichtigung, Löschung und
+            Einschränkung der Verarbeitung Ihrer Daten sowie ein
+            Beschwerderecht bei einer Datenschutz-Aufsichtsbehörde. Bitte
+            wenden Sie sich dazu an die im Impressum genannte Stelle.
+          </p>
+
+          <h3>6. Dauer der Bereitstellung</h3>
+          <p>
+            Diese Seite wird nur für einen begrenzten Zeitraum im Rahmen des
+            Schulfests bereitgestellt und anschließend wieder offline genommen.
+          </p>
+
+          <p style="margin-top:14px;opacity:.6;">
+            Stand: <span class="placeholder">26.6.2026</span>
+          </p>
+        </div>
+      </details>
+
     </section>
 
     <footer>
